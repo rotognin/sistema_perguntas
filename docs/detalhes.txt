@@ -1,0 +1,12 @@
+Tabela de usuarios
+
+status
+    0 - Administrador
+    1 - Ativo
+    2 - Inativo
+
+
+    
+
+
+Envio de e-mail: https://www.devmedia.com.br/php-envio-de-e-mail-autenticado-utilizando-o-phpmailer/38380

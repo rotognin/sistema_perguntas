@@ -1,0 +1,5 @@
+-- Continuar montando a tela principal da administração
+depois que faz o login, vai para "menu.php"
+
+-- Assim que fizer uma "limpeza" dos códigos antigos, criar um repositório no github para
+   ir armazenando as versões.
