@@ -13,7 +13,13 @@
 
         ?>
         </p>
-        <a href="index.php?action=acesso">Efetuar o login</a>
+        <?php
+           if ($logado){
+               echo '<a href="index.php?action=acesso">Efetuar o login</a>';
+           } else {
+               echo '<a href="index.php?action=logout">Sair</a>';
+           }
+        ?>
     </div>
 </body>
 </html>
