@@ -21,5 +21,6 @@
            }
         ?>
     </div>
+    <?php include ('./html/scriptsjs.php'); ?>
 </body>
 </html>
