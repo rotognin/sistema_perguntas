@@ -10,7 +10,6 @@ class Controller
     {
         $params = http_build_query(["login" => verificarString($post['login'])]);
         $usuario = (new Usuario())->find('login = :login', $params)->fetch();
-        var_dump($usuario);
 
         if (!$usuario)
         {
@@ -39,10 +38,10 @@ class Controller
         self::menu();
     }
 
-    public static function logout()
+    public static function logout(string $mensagem = '')
     {
         session_unset();
-        self::view('index');
+        self::view('index', ['mensagem' => $mensagem]);
     }
 
     public static function home()

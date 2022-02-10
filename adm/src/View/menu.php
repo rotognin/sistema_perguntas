@@ -11,7 +11,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link text-white" href="index.php?action=index&control=usuario">Usuários</a>
                     <span class="nav-link text-white">|</span>
-                    <a class="nav-link text-white" href="index.php?action=perguntas&control=pergunta">Perguntas</a>
+                    <a class="nav-link text-white" href="index.php?action=index&control=pergunta">Perguntas</a>
                     <span class="nav-link text-white">|</span>
 
                     <!-- Ver se mais pra frente poderemos ter parâmetros no sistema -->

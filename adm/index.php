@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Ponto de entrada do sistema
+ */
+
 session_start();
 
 use Src\Controller;

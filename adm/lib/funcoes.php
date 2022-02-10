@@ -42,3 +42,22 @@ function criarCsrf()
 {
     $_SESSION['csrf'] = sha1(date('d-m-Y H-i-s'));
 }
+
+/**
+ * Recebe um array e verifica se existe alguma variável em branco
+ * Retorna TRUE caso exista
+ */
+function verificarEmBranco(array $valores = [])
+{
+    if (empty($valores)){
+        return true;
+    }
+
+    foreach($valores as $valor){
+        if (empty($valor)){
+            return true;
+        }
+    }
+
+    return false;
+}
