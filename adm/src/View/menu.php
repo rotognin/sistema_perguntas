@@ -9,9 +9,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link text-white" href="index.php?action=usuarios&control=usuario">Usuários</a>
+                    <a class="nav-link text-white" href="index.php?action=index&control=usuario">Usuários</a>
                     <span class="nav-link text-white">|</span>
-                    <a class="nav-link text-white" href="index.php?action=Perguntas&control=pergunta">Perguntas</a>
+                    <a class="nav-link text-white" href="index.php?action=perguntas&control=pergunta">Perguntas</a>
                     <span class="nav-link text-white">|</span>
 
                     <!-- Ver se mais pra frente poderemos ter parâmetros no sistema -->

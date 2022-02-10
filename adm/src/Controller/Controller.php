@@ -10,6 +10,7 @@ class Controller
     {
         $params = http_build_query(["login" => verificarString($post['login'])]);
         $usuario = (new Usuario())->find('login = :login', $params)->fetch();
+        var_dump($usuario);
 
         if (!$usuario)
         {
