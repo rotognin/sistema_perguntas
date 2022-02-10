@@ -23,3 +23,10 @@ define ("STATUS_USUARIO", array(
     'Ativo' => 1,
     'Inativo' => 2
 ));
+
+define ("STATUS_PERGUNTA", array(
+    'Ativa'   => 1,
+    '1'       => 'Ativa',
+    'Inativa' => 2,
+    '2'       => 'Inativa'
+));
