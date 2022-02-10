@@ -40,8 +40,26 @@
                         echo '<td>' . $usuario->nome . '</td>';
                         echo '<td>' . $usuario->login . '</td>';
                         echo '<td>' . NIVEL_USUARIO[$usuario->status] . '</td>';
-                        echo '<td>Alterar</td>';
-                        echo '<td>Inativar</td>';
+                        echo '<td>'; 
+                            echo '<form method="post" action="index.php?control=usuario&action=alterar">';
+                                echo '<input type="hidden" name="id" value="' . $usuario->id . '">';
+                                echo '<input type="submit" style="margin-left: 10px" value="Alterar" class="btn btn-primary btn-sm">';
+                            echo '</form>';
+                        echo '</td>';
+                        
+                        if (NIVEL_USUARIO[$usuario->status] != 'Administrador'){
+                            $acao = (NIVEL_USUARIO[$usuario->status] == 'Ativo') ? 'inativar' : 'ativar';
+
+                            echo '<td>';
+                                    echo '<form method="post" action="index.php?control=usuario&action=' . $acao . '">';
+                                    echo '<input type="hidden" name="id" value="' . $usuario->id . '">';
+                                    echo '<input type="submit" style="margin-left: 10px" value="' . ucfirst($acao) . '" class="btn btn-info btn-sm">';
+                                echo '</form>';
+                            echo '</td>';
+                        } else {
+                            echo '<td>.</td>';
+                        }
+
                     echo '</tr>';
                 }
             ?>
