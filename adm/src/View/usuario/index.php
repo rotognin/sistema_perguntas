@@ -15,6 +15,11 @@
             </div>
         </nav>
         <br>
+        <?php
+            $regra = 'danger';
+            include_once ('./lib/mensagem.php');
+        ?>
+        <br>
 
         <table class="table table-hover table-sm">
             <thead>

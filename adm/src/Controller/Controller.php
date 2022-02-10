@@ -38,7 +38,7 @@ class Controller
         self::menu();
     }
 
-    public static function logout(string $mensagem = '')
+    public static function logout(array $post, array $get, string $mensagem = '')
     {
         session_unset();
         self::view('index', ['mensagem' => $mensagem]);
