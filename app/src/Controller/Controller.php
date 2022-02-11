@@ -11,6 +11,11 @@ class Controller
      */
     public static function login(array $post, array $get)
     {
+        if (!isset($post['_token']) || $post['_token'] != $_SESSION['csrf']){
+            self::logout();
+            exit;
+        }
+
         if ($post['login'] == '' || $post['senha'] == ''){
             self::view('login', ['mensagem' => 'Login ou senha inválidos']);
             Exit;
@@ -65,7 +70,7 @@ class Controller
     public static function principal()
     {
         // Chamada da View Index, depois que estiver logado
-        self::view('index', ['logado' => verificarSessao()]);
+        self::view('index', ['logado' => estaLogado()]);
     }
 
     /**

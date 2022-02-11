@@ -11,6 +11,7 @@
             <h2>Login no Sistema de Perguntas e Respostas</h2>
             <br>
             <form method="post" action="index.php?action=login">
+                <input type="hidden" name="_token" value="<?php echo $_SESSION['csrf']; ?>">
                 <div class="form-group">
                     <label for="login" style="margin:0px"><b>Login: </b></label><br>
                     <input type="text" id="login" name="login" size="40" autofocus>

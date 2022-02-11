@@ -27,12 +27,12 @@ class PerguntaController extends Controller
 
     public static function inativar(array $post, array $get)
     {
-        self::alterarStatus($post['id'], STATUS_PERGUNTA['Inativo']);
+        self::alterarStatus($post['id'], STATUS_PERGUNTA['Inativa']);
     }
 
     public static function ativar(array $post, array $get)
     {
-        self::alterarStatus($post['id'], STATUS_PERGUNTA['Ativo']);
+        self::alterarStatus($post['id'], STATUS_PERGUNTA['Ativa']);
     }
 
     public static function alterarStatus(int $id, int $status)

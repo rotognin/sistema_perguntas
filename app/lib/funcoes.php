@@ -54,18 +54,7 @@ function criarCsrf()
 /**
  * Verificar se o usuário está logado.
  */
-function verificarSessao()
-{
-    if (!isset($_SESSION['usuId']) || $_SESSION['usuId'] == 0){
-        return false;
-    }
 
-    return true;
-}
-
-/**
- * Checar se o usuário está logado
- */
 function estaLogado()
 {
     if (!isset($_SESSION['usuId']) || $_SESSION['usuId'] == 0){
