@@ -23,4 +23,20 @@ class Pergunta extends DataLayer
 
         return (new Pergunta())->find($busca, $params)->fetch(true);
     }
+
+    public function buscarAleatoria()
+    {
+        $quantidade = (new Pergunta())->find()->count();
+
+        $encontrou = false;
+
+        while (!$encontrou)
+        {
+            $codigo = rand(1, $quantidade);
+            $pergunta = (new Pergunta())->findById($codigo);
+            $encontrou = (obterStatus($pergunta->status) == 'Ativo');
+        }
+
+        return $pergunta;
+    }
 }
