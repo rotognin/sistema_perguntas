@@ -19,6 +19,6 @@ class PerguntaController extends Controller
     {
         criarCsrf();
         $pergunta = (new Pergunta())->buscarAleatoria();
-        parent::view('pergunta.pergunta', ['pergunta' => $pergunta]);
+        parent::view('pergunta.pergunta', ['pergunta' => $pergunta, 'logado' => estaLogado()]);
     }
 }
