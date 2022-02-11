@@ -17,3 +17,8 @@ define ("NIVEL_USUARIO", array(
     '1' => 'Ativo',
     '2' => 'Inativo'
 ));
+
+define ("STATUS_PERGUNTA", array(
+    'Ativo' => 1,
+    'Inativo' => 2
+));

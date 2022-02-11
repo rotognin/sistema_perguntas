@@ -16,7 +16,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link text-white" href="index.php?action=index&control=pergunta">Lista de Perguntas</a>
+                    <a class="nav-link text-white" href="index.php?action=principal">Página inicial</a>
                     <span class="nav-link text-white">|</span>
                     <?php
                         if ($logado){
@@ -29,7 +29,7 @@
                         ?>
                             <a class="nav-link text-white" href="index.php?action=acesso">Login</a>
                             <span class="nav-link text-white">|</span>
-                            <a class="nav-link text-white" href="index.php?action=registro">Cadastrar</a>
+                            <a class="nav-link text-white" href="index.php?action=registro">Registrar</a>
                             <span class="nav-link text-white">|</span>
                         <?php
                         }
@@ -37,21 +37,20 @@
                 </div>
             </div>
         </nav>
-        <hr>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container-fluid">
-                <h1 class="display-4">Como funciona???</h1>
-                <p class="lead">
-                    Após se cadastrar, efetue o login para poder responder a perguntas aleatórias, além de 
-                    poder ver outras respostas e interagir com elas, votando positivo ou negativo.
-                </p>
-                <hr class="my-4">
-                <p>Se você ainda não tem um cadastro, clique no botão abaixo para se cadastrar. É simples e rápido!</p>
-                <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="index.php?action=registro" role="button">Cadastrar</a>
-                </p>
-            </div>
-        </div>
+        <?php
+           echo '<br><br>';
+           echo '<h3>Perguntas cadastradas:</h3>';
+           echo '<br>';
+
+           foreach ($perguntas as $pergunta){
+               echo $pergunta->id . ' - ' . $pergunta->texto . '<br>';
+               /**
+                * Ideia: para cada pergunta, carregar as três respostas mais bem votadas
+                * Montar um Accordion, onde serão exibidas as respostas
+                * https://getbootstrap.com/docs/4.0/components/collapse/
+                */
+           }
+        ?>
     </div>
     <?php include ('./html/scriptsjs.php'); ?>
 </body>

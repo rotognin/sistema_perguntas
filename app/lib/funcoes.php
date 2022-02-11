@@ -63,3 +63,15 @@ function estaLogado()
 
     return true;
 }
+
+/**
+ * Helper para obter o Status ou código
+ */
+function obterStatus($status)
+{
+    if (in_array($status, STATUS_PERGUNTA)){
+        return array_search($status, STATUS_PERGUNTA);
+    }
+
+    return STATUS_PERGUNTA[$status];
+}

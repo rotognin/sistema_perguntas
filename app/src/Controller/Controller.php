@@ -3,6 +3,7 @@
 namespace Src\Controller;
 
 use Src\Model\Usuario;
+use Src\Model\Pergunta;
 
 class Controller
 {
@@ -34,7 +35,7 @@ class Controller
             Exit;
         }
 
-        if (NIVEL_USUARIO[$usuario->status] != 'Ativo'){
+        if (NIVEL_USUARIO[$usuario->status] == 'Inativo'){
             self::view('login', ['mensagem' => 'Acesso não autorizado.']);
             Exit;
         }
