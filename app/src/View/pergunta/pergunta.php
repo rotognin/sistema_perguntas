@@ -60,14 +60,23 @@
             <h4 class="alert-heading">Respostas:</h4>
             <!-- Dados fictícios para teste -->
             <hr>
-            <p><b>Rodrigo Tognin</b> em 01/01/2022:</p>
+
+            <?php
+                if (!$pergunta->respostas){
+                    echo 'Sem respostas...<br>';
+                } else {
+                    echo 'Existem respostas!<br>';
+                }
+            ?>
+
+            <!--p><b>Rodrigo Tognin</b> em 01/01/2022:</p>
             <p>Eu acho que é isso mesmo, que estávamos falando.</p>
             <hr>
             <p><b>Jonas da Silva</b> em 03/01/2022:</p>
             <p>É verdade mesmo, estive pensando nisso....</p>
             <hr>
             <p><b>Janaína Catarina</b> em 05/01/2022:</p>
-            <p>Talvez não seja realmente verdade o que responderam anteriormente, pois veja só, ...</p>
+            <p>Talvez não seja realmente verdade o que responderam anteriormente, pois veja só, ...</p-->
         </div>
     </div>
     <?php include ('./html/scriptsjs.php'); ?>

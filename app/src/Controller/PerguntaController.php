@@ -3,6 +3,7 @@
 namespace Src\Controller;
 
 use Src\Model\Pergunta;
+use Src\Model\Resposta;
 
 class PerguntaController extends Controller
 {
@@ -19,6 +20,10 @@ class PerguntaController extends Controller
     {
         criarCsrf();
         $pergunta = (new Pergunta())->buscarAleatoria();
+
+        // Buscar as respostas da pergunta selecionada
+        $pergunta->respostas = (new Resposta())->find('pergunta_id = ' . $pergunta->id)->fetch(true);
+
         parent::view('pergunta.pergunta', ['pergunta' => $pergunta, 'logado' => estaLogado()]);
     }
 }
