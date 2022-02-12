@@ -29,7 +29,7 @@
                         ?>
                             <a class="nav-link text-white" href="index.php?action=acesso">Login</a>
                             <span class="nav-link text-white">|</span>
-                            <a class="nav-link text-white" href="index.php?action=registro">Cadastrar</a>
+                            <a class="nav-link text-white" href="index.php?action=registro&control=usuario">Cadastrar</a>
                             <span class="nav-link text-white">|</span>
                         <?php
                         }

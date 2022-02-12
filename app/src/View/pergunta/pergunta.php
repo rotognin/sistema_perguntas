@@ -40,43 +40,52 @@
         <hr>
         <div class="alert alert-success" role="alert">
             <h3 class="alert-heading"><?php echo $pergunta->texto; ?></h3>
+            <p><i>Capriche na resposta, pois você não sabe quando poderá respondê-la novamente!</i></p>
             <hr>
-            <form method="post" action="index.php?action=gravar&control=resposta">
-                <input type="hidden" name="_token" value="<?php echo $_SESSION['csrf']; ?>">
+            <?php
+                if ($texto == ''){
+                ?>
+                    <form method="post" action="index.php?action=gravar&control=resposta">
+                        <input type="hidden" name="_token" value="<?php echo $_SESSION['csrf']; ?>">
 
-                <div class="form-group">
-                    <textarea class="form-control" type="text" id="texto" name="texto" autofocus rows="3"></textarea>
-                </div>
+                        <div class="form-group">
+                            <textarea class="form-control" type="text" id="texto" name="texto" autofocus rows="3"></textarea>
+                        </div>
 
-                <input type="hidden" id="pergunta_id" name="pergunta_id" value="<?php echo $pergunta->id; ?>">
-                <input type="hidden" id="usuario_id" name="usuario_id" value="<?php echo $_SESSION['usuId']; ?>">
-                <input type="hidden" id="status" name="status" value="1">
+                        <input type="hidden" id="pergunta_id" name="pergunta_id" value="<?php echo $pergunta->id; ?>">
+                        <input type="hidden" id="status" name="status" value="1">
 
-                <button type="submit" value="Gravar" class="btn btn-primary">Gravar</button>
-            </form>
+                        <button type="submit" value="Gravar" class="btn btn-primary">Gravar</button>
+                    </form>
+                <?php
+                } else {
+                ?>
+                    <textarea class="form-control" type="text" id="texto" name="texto" readonly rows="3"><?php echo $texto; ?></textarea>
+                <?php
+                }
+            ?>
+            
         </div>
+        <?php
+            $regra = 'danger';
+            include_once ('./lib/mensagem.php');
+        ?>
         <br>
         <div class="alert alert-secondary" role="alert">
             <h4 class="alert-heading">Respostas:</h4>
-            <!-- Dados fictícios para teste -->
             <hr>
 
             <?php
                 if (!$pergunta->respostas){
-                    echo 'Sem respostas...<br>';
+                    echo 'Sem respostas ainda...<br>';
                 } else {
-                    echo 'Existem respostas!<br>';
+                    foreach($pergunta->respostas as $resposta){
+                        echo '<p><b>' . $resposta->usuario->nome . '</b> em ' . date_format(date_create($resposta->created_at),"d/m/Y H:i") . '</p>';
+                        echo '<p>' . $resposta->texto . '</p>';
+                        echo '<hr>';
+                    }
                 }
             ?>
-
-            <!--p><b>Rodrigo Tognin</b> em 01/01/2022:</p>
-            <p>Eu acho que é isso mesmo, que estávamos falando.</p>
-            <hr>
-            <p><b>Jonas da Silva</b> em 03/01/2022:</p>
-            <p>É verdade mesmo, estive pensando nisso....</p>
-            <hr>
-            <p><b>Janaína Catarina</b> em 05/01/2022:</p>
-            <p>Talvez não seja realmente verdade o que responderam anteriormente, pois veja só, ...</p-->
         </div>
     </div>
     <?php include ('./html/scriptsjs.php'); ?>

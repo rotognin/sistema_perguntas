@@ -4,6 +4,7 @@ namespace Src\Controller;
 
 use Src\Model\Pergunta;
 use Src\Model\Resposta;
+use Src\Model\Usuario;
 
 class PerguntaController extends Controller
 {
@@ -14,16 +15,26 @@ class PerguntaController extends Controller
     }
 
     /**
-     * Verificar quantas 
+     * Chamar a tela de pergunta com um ID carregado ou escolher uma aleatoriamente
      */
-    public static function pergunta()
+    public static function pergunta(array $post, array $get, int $id = 0, string $mensagem = '', string $texto = '')
     {
         criarCsrf();
-        $pergunta = (new Pergunta())->buscarAleatoria();
-
-        // Buscar as respostas da pergunta selecionada
+        $pergunta = ($id == 0) ? (new Pergunta())->buscarAleatoria() : (new Pergunta())->findById($id);
         $pergunta->respostas = (new Resposta())->find('pergunta_id = ' . $pergunta->id)->fetch(true);
 
-        parent::view('pergunta.pergunta', ['pergunta' => $pergunta, 'logado' => estaLogado()]);
+        if (!empty($pergunta->respostas)){
+            foreach($pergunta->respostas as $resposta){
+                $resposta->usuario = (new Usuario())->findById($resposta->usuario_id);
+            }
+        }
+
+        parent::view('pergunta.pergunta', [
+            'pergunta' => $pergunta, 
+            'logado' => estaLogado(), 
+            'mensagem' => $mensagem,
+            'texto' => $texto
+        ]);
+
     }
 }
