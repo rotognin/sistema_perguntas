@@ -15,7 +15,8 @@ define ("DS", DIRECTORY_SEPARATOR);
 define ("NIVEL_USUARIO", array(
     '0' => 'Administrador',
     '1' => 'Ativo',
-    '2' => 'Inativo'
+    '2' => 'Inativo',
+    '3' => 'Pendente'
 ));
 
 define ("STATUS_PERGUNTA", array(

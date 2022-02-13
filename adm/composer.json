@@ -1,0 +1,25 @@
+{
+    "name": "rotognin/perguntas-adm",
+    "description": "Sistema de Perguntas e Respostas - Administrativo",
+    "require": {
+        "coffeecode/datalayer": "1.1.*",
+        "phpmailer/phpmailer": "^6.5"
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        },
+        "files": [
+            "src/config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Rodrigo Tognin"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor/"
+    }
+}

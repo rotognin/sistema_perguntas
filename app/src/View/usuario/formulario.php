@@ -23,7 +23,5 @@
         <input type="password" id="senha_novamente" name="senha_novamente">
     </div>
 
-    <input type="hidden" id="acao" name="acao" value="<?php echo $acao; ?>">
-
     <button type="submit" value="Gravar" class="btn btn-primary">Gravar</button>
 </form>

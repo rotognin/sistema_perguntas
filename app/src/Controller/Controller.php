@@ -19,7 +19,7 @@ class Controller
 
         if ($post['login'] == '' || $post['senha'] == ''){
             self::view('login', ['mensagem' => 'Login ou senha inválidos']);
-            Exit;
+            exit;
         }
 
         $params = http_build_query(["login" => verificarString($post['login'])]);
@@ -27,18 +27,25 @@ class Controller
 
         if (!$usuario){
             self::view('login', ['mensagem' => 'Login ou senha inválidos']);
-            Exit;
+            exit;
         }
 
         if ($usuario->senha != sha1($post['senha'])){
             self::view('login', ['mensagem' => 'Login ou senha inválidos']);
-            Exit;
+            exit;
         }
 
         if (NIVEL_USUARIO[$usuario->status] == 'Inativo'){
             self::view('login', ['mensagem' => 'Acesso não autorizado.']);
-            Exit;
+            exit;
         }
+
+        // Se o usuário estiver como pendente, ir para a página de digitar o código de confirmação
+        if (NIVEL_USUARIO[$usuario->status] == 'Pendente'){
+            self::view('usuario.confirmacao', ['usuario' => $usuario]);
+            exit;
+        }
+
 
         $_SESSION['usuId'] = $usuario->id;
         $_SESSION['usuNome'] = $usuario->nome;
