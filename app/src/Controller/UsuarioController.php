@@ -48,6 +48,10 @@ class UsuarioController extends Controller
             $mensagem .= 'A senha deve ser informada.<br>';
         }
 
+        if ($usuario->loginExiste()){
+            $mensagem .= 'O login escolhido já existe.<br>';
+        }
+
         if ($mensagem != ''){
             // Voltar para a view
             parent::view('usuario.cadastro', ['mensagem' => $mensagem, 'usuario' => $usuario]);
@@ -55,11 +59,13 @@ class UsuarioController extends Controller
         }
 
         $usuario->status = 3; // Pendente de ativação
+        $usuario->gerarCodigoConfirmacao();
 
         // Gravar o registro
         $usuario->save();
 
         // Enviar um código por e-mail
+
 
         // Encaminhar o usuário para uma página onde ele deverá digitar o código enviado
         // por e-mail
