@@ -82,6 +82,16 @@
                     foreach($pergunta->respostas as $resposta){
                         echo '<p><b>' . $resposta->usuario->nome . '</b> em ' . date_format(date_create($resposta->created_at),"d/m/Y H:i") . '</p>';
                         echo '<p>' . $resposta->texto . '</p>';
+                        if (is_null($resposta->voto)){
+                            echo 'Votar: &nbsp;&nbsp;<input type="button" value="Positivo" onclick="VotarPositivo(' . $resposta->id . ');">&nbsp;&nbsp;&nbsp;<input type="button" value="Negativo" onclick="VotarNegativo(' . $resposta->id . ');">';
+                        } else {
+                            if ($resposta->voto->voto == VOTO['Positivo']){
+                                echo 'Votar: &nbsp;&nbsp;<span class="btn btn-primary">Positivo</span>&nbsp;&nbsp;&nbsp;<span>Negativo</span>';
+                            } else {
+                                echo 'Votar: &nbsp;&nbsp;<span>Positivo</span>&nbsp;&nbsp;&nbsp;<span class="btn btn-secondary">Negativo</span>';
+                            }
+                        }
+                        
                         echo '<hr>';
                     }
                 }
@@ -89,5 +99,6 @@
         </div>
     </div>
     <?php include ('./html/scriptsjs.php'); ?>
+    <?php include ('./html/funcoes.js'); ?>
 </body>
 </html>
