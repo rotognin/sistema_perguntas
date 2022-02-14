@@ -16,8 +16,8 @@ define("DATA_LAYER_CONFIG", [
 ]);
 
 define("EMAIL_DATA",[
-    "host" => "",
-    "user" => "",
-    "pass" => "",
+    "host" => "smtp",
+    "user" => "user",
+    "pass" => "pass",
     "port" => 465
 ]);
