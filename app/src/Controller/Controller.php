@@ -42,10 +42,10 @@ class Controller
 
         // Se o usuário estiver como pendente, ir para a página de digitar o código de confirmação
         if (NIVEL_USUARIO[$usuario->status] == 'Pendente'){
+            criarCsrf();
             self::view('usuario.confirmacao', ['usuario' => $usuario]);
             exit;
         }
-
 
         $_SESSION['usuId'] = $usuario->id;
         $_SESSION['usuNome'] = $usuario->nome;

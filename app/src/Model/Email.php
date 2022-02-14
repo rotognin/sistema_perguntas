@@ -56,7 +56,7 @@ class Email
             $email->isSMTP();
             $email->Host = $this->host;
             $email->SMTPAuth = true;
-            $email->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $email->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $email->Username = $this->user;
             $email->Password = $this->pass;
             $email->Port = $this->port;
@@ -71,7 +71,7 @@ class Email
                 )
             );
 
-            $email->setFrom($this->user, 'Hotel de Visitas');
+            $email->setFrom($this->user, 'Sistema de Perguntas e Respostas');
             $email->addReplyTo($this->user);
             $email->addAddress($this->destino);
             $email->isHTML(true);
