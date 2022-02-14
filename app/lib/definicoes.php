@@ -23,3 +23,8 @@ define ("STATUS_PERGUNTA", array(
     'Ativo' => 1,
     'Inativo' => 2
 ));
+
+define ("VOTO", array(
+    'Positivo' => 1,
+    'Negativo' => 2
+));

@@ -43,7 +43,7 @@ CREATE TABLE `avaliacoes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `resposta_id` int NOT NULL,
   `usuario_id` int NOT NULL,
-  `voto` tinytext,
+  `voto` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -52,6 +52,7 @@ CREATE TABLE `avaliacoes` (
   CONSTRAINT `fk_avaliacoes_resposta_id` FOREIGN KEY (`resposta_id`) REFERENCES `respostas` (`id`),
   CONSTRAINT `fk_avaliacoes_usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 CREATE TABLE `log_tb` (
