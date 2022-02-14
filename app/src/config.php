@@ -15,9 +15,11 @@ define("DATA_LAYER_CONFIG", [
     ]
 ]);
 
+require_once('configemail.php');
+
 define("EMAIL_DATA",[
-    "host" => "smtp",
-    "user" => "user",
-    "pass" => "pass",
+    "host" => $email_host,
+    "user" => $email_user,
+    "pass" => $email_pass,
     "port" => 465
 ]);
