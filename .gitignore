@@ -3,5 +3,5 @@ error_log
 .vscode/
 vendor/
 log.txt
-#config.php
+config.php
 segredos.txt
