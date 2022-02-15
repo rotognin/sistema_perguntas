@@ -82,10 +82,10 @@
                     foreach($pergunta->respostas as $resposta){
                         echo '<p><b>' . $resposta->usuario->nome . '</b> em ' . date_format(date_create($resposta->created_at),"d/m/Y H:i") . '</p>';
                         echo '<p>' . $resposta->texto . '</p>';
-                        echo '<span id="votos" data-resposta-id="' . $resposta->id . '">';
+                        echo '<span id="votos' . $resposta->id . '">';
 
                         if (is_null($resposta->voto)){
-                            echo 'Votar: &nbsp;&nbsp;<button id="positivo">Positivo</button>&nbsp;&nbsp;&nbsp;<button id="negativo">Negativo</button>';
+                            echo 'Votar: &nbsp;&nbsp;<button id="positivo" onclick="votoPositivo(' . $resposta->id . ');">Positivo</button>&nbsp;&nbsp;&nbsp;<button id="negativo" onclick="votoNegativo(' . $resposta->id . ');">Negativo</button>';
                         } else {
                             if ($resposta->voto->voto == VOTO['Positivo']){
                                 echo 'Votado: &nbsp;&nbsp;<span class="btn btn-primary">Positivo</span>&nbsp;&nbsp;&nbsp;<span>Negativo</span>';
@@ -102,6 +102,6 @@
         </div>
     </div>
     <?php include ('./html/scriptsjs.php'); ?>
-    <?php include ('./html/funcoes.js'); ?>
+    <script type="application/javascript" src="html/funcoes.js"></script>
 </body>
 </html>
