@@ -39,8 +39,6 @@ class PerguntaController extends Controller
                 // Checar se o usuário já votou naquela resposta
                 $params = http_build_query(['resposta_id' => $resposta->id, 'usuario_id' => $_SESSION['usuId']]);
                 $resposta->voto = (new Avaliacao())->find('resposta_id = :resposta_id AND usuario_id = :usuario_id', $params)->fetch(true);
-
-
             }
         }
 
@@ -48,7 +46,8 @@ class PerguntaController extends Controller
             'pergunta' => $pergunta, 
             'logado' => estaLogado(), 
             'mensagem' => $mensagem,
-            'texto' => $texto
+            'texto' => $texto,
+            'logado' => estaLogado()
         ]);
 
     }
